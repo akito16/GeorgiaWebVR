@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>360度動画</title>
+  <script src="aframe.min.js"></script>
+  <script src="play-on-touch.js"></script>
+</head>
+
+<body>
+  <a-scene id="scene">
+    <a-assets>
+      <!--初期画像-->
+      <img id="img" src="image/kyoukai.jpg" preload="auto">
+      <!--<audio id="audio" src="audio/kyoukai_1.m4a" autoplay="true" preload="auto"></audio>-->
+    </a-assets>
+
+    <!-- 画像の変更を行う場合はこっちのidで -->
+    <a-sky id="skyimg" src="#img" play-on-touch="#scene"></a-sky>
+
+    <!-- 動画の autoplay が効かない場合用の、再生・停止ボタン (画像になったからいるかわからない) -->
+    <a-box id="play" position="-1 0.5 -1" scale="0.5 0.5 0.01" src="start2.jpeg"></a-box>
+    <a-box id="stop" position="0 0.5 -1" scale="0.5 0.5 0.01" src="stop2.jpg"></a-box>
+    <a-box id="link" position="1 0.5 -1" scale="0.5 0.5 0.01" src="repeat.jpeg"></a-box>
+
+    <!-- リンク用のbox -->
+    <a-sphere id="link1" position="0 3 -4" scale="1 1 1" src="image/kusatsu2.jpg" linkbox1></a-sphere>
+    <a-sphere id="link2" position="7 3 3" scale="1 1 1" src="image/Kvevri.jpg" linkbox2></a-sphere>
+    <a-sphere id="link3" position="-7 3 3" scale="1 1 1" src="image/budoubatake.jpg" linkbox3></a-sphere>
+
+    <!-- 再生・停止ボタンを押すための視線カーソル（スマホ用） -->
+    <a-camera>
+      <a-cursor fuse="true" fuse-timeout="1000"></a-cursor>
+      <a-entity id="touch1" cursor="rayOrigin: mouse"></a-entity>
+    </a-camera>
+  </a-scene>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
